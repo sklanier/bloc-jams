@@ -68,13 +68,20 @@ var songRows = document.getElementsByClassName('album-view-song-item');
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 
+var playPausedTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
+
 window.onload = function() {
      setCurrentAlbum(albumPicasso);
-		 songListContainer.addEventListener('mouseover', function(event) {
-					if (event.target.parentElement.className === 'album-view-song-item') {
-						  event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+		 songListContainer.addEventListener('mouseover', function(eventHover){
+					if (eventHover.target.parentElement.className === 'album-view-song-item') {
+					eventHover.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
           } 
      });
+		 songListContainer.addEventListener('click', 
+		 function(eventClick){
+			 		if (eventHover.target.parentElement.className === 
+			 		eventClick.target.parentElement.querySelector('.song-item-number').innerHTML = playPausedTemplate;
+		 })
 	
 		 for (var i = 0; i < songRows.length; i++) {
 			 songRows[i].addEventListener('mouseleave', function(event) {
