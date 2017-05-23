@@ -125,8 +125,12 @@ window.onload = function() {
 		//1
     songListContainer.addEventListener('mouseover', function(eventHover){
 	    if (eventHover.target.parentElement.className === 'album-view-song-item') {
-            eventHover.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
-      } 
+				var songItem = getSongItem(event.target);
+
+        if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+        	songItem.innerHTML = playButtonTemplate;
+        }
+			}
     });
 	
 	for (var i = 0; i < songRows.length; i++) {
