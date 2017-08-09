@@ -184,19 +184,27 @@ $(document).ready(function() {
 		setupSeekBars();
 		$previousButton.click(previousSong);
     $nextButton.click(nextSong);
-//		$playPause.click(togglePlayFromPlayerBar);
+		$playPause.click(togglePlayFromPlayerBar);
 });
 
-/*var togglePlayFromPlayerBar = function() {
+var togglePlayFromPlayerBar = function() {
 	// if a song is paused
-	if currentSoundFile.isPaused()
+	if currentSoundFile.isPaused() {
 	// change icons to pause buttons
+		$(this).html(pauseButtonTemplate);
+    $('.main-controls .play-pause').html(playerBarPauseButton);
 	// play the song
-	
+		currentSoundFile.play();
+	}
 	// if the song is playing
+	if currentSoundFile.isPaused() = false {
 	// change icons to play buttons
+		$(this).html(playButtonTemplate);
+		$('.main-controls .play-pause').html(playerBarPlayButton);
 	// pause the song
-}*/
+		currentSoundFile.pause();
+	}
+}
 
 var seek = function(time) {
      if (currentSoundFile) {
