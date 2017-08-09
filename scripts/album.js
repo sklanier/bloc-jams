@@ -188,18 +188,18 @@ $(document).ready(function() {
 });
 
 var togglePlayFromPlayerBar = function() {
-	// if a song is paused
-	if currentSoundFile.isPaused() {
+	// if a song is paused and user clicks play/pause button
+	if (currentSoundFile.isPaused()) {
 	// change icons to pause buttons
-		$(this).html(pauseButtonTemplate);
+		var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+		currentlyPlayingCell.html(pauseButtonTemplate);
     $('.main-controls .play-pause').html(playerBarPauseButton);
 	// play the song
 		currentSoundFile.play();
-	}
-	// if the song is playing
-	if currentSoundFile.isPaused() = false {
+	} else if (currentSoundFile.isPaused() == false) {
 	// change icons to play buttons
-		$(this).html(playButtonTemplate);
+		var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+		currentlyPlayingCell.html(playButtonTemplate);
 		$('.main-controls .play-pause').html(playerBarPlayButton);
 	// pause the song
 		currentSoundFile.pause();
